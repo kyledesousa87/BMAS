@@ -1,0 +1,25 @@
+{
+  "name": "BMAS",
+  "version": "1.0.0",
+  "description": "BMAS - Project GULP, SASS &amp; jQuery reveal",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyledesousa87/BMAS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyledesousa87/BMAS/issues"
+  },
+  "homepage": "https://github.com/kyledesousa87/BMAS#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
