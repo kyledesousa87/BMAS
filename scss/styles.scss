@@ -1,4 +1,38 @@
-body {
-  background-color: black;
-  color: white;
+@import "partials/mixins";
+@import "partials/fonts";
+
+
+.juiceme {
+  @include e('logo') {
+    /* CSS declarations for `.block__element` */
+    color: pink;
+  }
+}
+
+
+.top-nav {
+  /* CSS declarations for `.block` */
+  display: inline-block;
+  @include e('item') {
+    /* CSS declarations for `.block__element` */
+    display: inline-block;
+    padding: 4px;
+    @include e('link') {
+      font-family: $font-fam;
+      display: block;
+      padding: 5px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+  }
+
+  @include m('modifier') {
+    /* CSS declarations for `.block--modifier` */
+
+    @include e('element') {
+      /* CSS declarations for `.block--modifier__element` */
+    }
+  }
 }
