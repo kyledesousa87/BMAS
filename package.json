@@ -19,10 +19,9 @@
   "homepage": "https://github.com/kyledesousa87/BMAS#readme",
   "devDependencies": {
     "browser-sync": "^2.24.7",
+    "flexbox-grid-mixins": "^0.1.4",
     "gulp": "^3.9.1",
     "gulp-sass": "^4.0.1"
   },
-  "dependencies": {
-    "gulp-jquery": "^1.1.2"
-  }
+  "dependencies": {}
 }
