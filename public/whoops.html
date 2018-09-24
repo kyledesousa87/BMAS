@@ -1,0 +1,17 @@
+
+    <h2>Whoops!</h2>
+    <h3>Looks like someting went wrong. Our</br>developers buys you a juice of choice</h3>
+    <button class="btn btn--outline scanCode">Get a free juice</button>
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.scanCode').on('click', initWave);
+        function initWave() {
+            $('.wav-holder').attr('data-wave', $('.wav-holder').attr('data-wave') == 'closed' ? 'open' : 'closed');
+            $('#showresults').load( "/scan-code.html").hide().fadeIn(400);
+        };
+    });
+</script>

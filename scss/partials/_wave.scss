@@ -6,43 +6,51 @@ body {
 
 
 
-.wav-holder {
 
+.wav-holder {
   width:100%;
   position:absolute;
   bottom:0;
   left:0;
   background: #FA9999;
 
-  height: 5%;
 
-  /* Set our transitions up. */
   -webkit-transition:height 0.8s;
   -moz-transition: height 0.8s;
   transition: height 0.8s;
 }
 
 [data-wave="open"]{
-
   height: 65%;
 }
-
-
 [data-wave="closed"] {
-
-  height:  5%;
+  @include breakpoint(mobileonly   ) {
+    height: 0%;
+  }
+  @include breakpoint(phablet  ) {
+    height: 0%;
+  }
+  @include breakpoint(tablet ) {
+    height: 1%;
+  }
+  @include breakpoint(laptop) {
+    height: 5%;
+  }
+  @include breakpoint(desktop) {
+    height: 5%;
+  }
 }
 
 $waveCurveTop: -75px;
-$waveCurveShiftA: -140px;
 $waveSpeed: 2s ;
 
+
 .wave {
-  background: url(/img/wave.svg);
+  background: url(/img/wave-1.svg);
   background-repeat: repeat-x;
-  background-size: 460px;
   background-position: top;
   position: absolute;
+  background-size: 100%;
   top: $waveCurveTop;
   width: 100%;
   height: 200px;
@@ -53,25 +61,21 @@ $waveSpeed: 2s ;
 }
 
 .wave:nth-of-type(2) {
-  top: $waveCurveTop + 5;
-  left: $waveCurveShiftA;
-  width: 108%;
-  //animation: wave 3s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  background: url(/img/wave-2.svg);
   animation: moveUp $waveSpeed ease -0.8s infinite;
   opacity: 0.5;
   z-index: 2;
+  background-size: 100%;
 }
 
 .wave:nth-of-type(3) {
-  top: $waveCurveTop + 5;
-  left: $waveCurveShiftA - 120;
-  width: 115%;
-  //animation: wave 3s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  background: url(/img/wave-3.svg);
   animation: moveUp $waveSpeed ease -0.6s infinite;
   opacity: 0.3;
   z-index: 3;
-}
+  background-size: 100%;
 
+}
 
 
 $waveTop: -20px;
@@ -90,8 +94,6 @@ $waveBot: 0px;
     margin-top: $waveBot;
   }
 }
-
-
 @keyframes moveUp {
   0%, 100% {
     transform: translate3d(0, -20px, 0);

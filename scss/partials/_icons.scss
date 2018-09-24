@@ -1,0 +1,52 @@
+
+
+.visually-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.qrcode {
+
+  $qrCodeSize: 200px;
+
+  @include breakpoint(mobileonly   ) {
+    width: $qrCodeSize / 2;
+    height: $qrCodeSize / 2;
+  }
+  @include breakpoint(phablet  ) {
+    width: $qrCodeSize / 1.5;
+    height: $qrCodeSize / 1.5;
+  }
+  @include breakpoint(tablet ) {
+    width: $qrCodeSize / 1.3;
+    height: $qrCodeSize / 1.3;
+  }
+  @include breakpoint(laptop) {
+    width: $qrCodeSize / 1.2;
+    height: $qrCodeSize / 1.2;
+  }
+  @include breakpoint(desktop) {
+    width: $qrCodeSize;
+    height: $qrCodeSize;
+  }
+
+
+  margin-bottom: 25px;
+  fill: $tertiary-colors;
+  vertical-align: middle;
+}
+
+/* Fallbacks! */
+html.no-svg .svg-holder > * {
+  display: none; /* just in case */
+}
+html.no-svg .qrcode {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin-right: 0.25em;
+  background-size: cover !important;
+  vertical-align: middle;
+  background: url(../img/qrcode-fallback.png) no-repeat;
+}

@@ -1,83 +1,11 @@
-@import "partials/mixins";
-@import "partials/fonts";
 @import '../node_modules/flexbox-grid-mixins/sass/flexbox-grid-mixins';
-//@import "partials/sliders";
-
+@import "partials/mixins";
+@import "partials/colors";
+@import "partials/fonts";
+@import "partials/topnav";
+@import "partials/layout";
 @import "partials/wave";
+@import "partials/buttons";
+@import "partials/icons";
 
 
-.top-header {
-  padding: 5px 10px;
-  @include grid( $flex-direction:row, $justify-content: space-between);
-  .juiceme {
-
-    @include grid-col($grid-columns: 3);
-  }
-  .top-nav {
-    @include grid-col($grid-columns: 9);
-  }
-}
-
-.juiceme {
-  @include e('logo') {
-    /* CSS declarations for `.block__element` */
-    color: pink;
-    text-transform: uppercase;
-    font-size: 44px;
-    font-family: $font-fam;
-    text-decoration: none;
-  }
-}
-
-
-
-.top-nav {
-  /* CSS declarations for `.block` */
-
-  @include e('item') {
-    /* CSS declarations for `.block__element` */
-    display: inline-block;
-    padding: 4px;
-
-      $list: (0, 25, 50, 75, 90);
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}):hover ~ .top-nav__item__hr{
-            margin-left: nth($list, $i) + % !important;
-        }
-      }
-
-
-    @include e('link') {
-      text-align: center;
-      min-width: 80px;
-      color: pink;
-      font-family: $font-fam;
-      display: block;
-      padding: 5px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-
-
-
-    }
-
-    @include e('hr'){
-      height: .25rem;
-      width: 25%;
-      margin: 0;
-      background: pink;
-      border: none;
-      transition: .3s ease-in-out;
-    }
-  }
-
-  //@include m('modifier') {
-  //  /* CSS declarations for `.block--modifier` */
-  //
-  //  @include e('element') {
-  //    /* CSS declarations for `.block--modifier__element` */
-  //  }
-  //}
-}

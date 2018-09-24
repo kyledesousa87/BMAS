@@ -1,0 +1,30 @@
+
+
+.btn {
+  border-radius: 40px;
+  padding: 15px 30px;
+  text-align: center;
+  font-family: $font-fam;
+  margin: 0 0 15px 0;
+  $min_width: 320px;
+  $max_width: 1200px;
+  $min_font: 16px;
+  $max_font: 25px;
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  outline: none;
+  margin-top: 20px;
+
+
+  @include m('fill') {
+    background-color: $primary-color;
+    border: 3px solid transparent;
+    color: $secondary-color ;
+  }
+
+  @include m('outline') {
+    background-color: transparent;
+    border: 3px solid $secondary-color;
+    color: $secondary-color ;
+  }
+}
+

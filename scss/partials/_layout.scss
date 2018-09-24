@@ -1,0 +1,49 @@
+
+*, html {
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; padding: 0; margin: 0 }
+body {
+  overflow: hidden;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  flex-direction: column ;
+  flex-grow: 1;
+  width: 100%;
+  height: 80%;
+  z-index: 20;
+}
+
+.top-header {
+  padding: 10px 20px;
+  @include grid( $flex-direction:row, $justify-content: space-between);
+  .juiceme {
+    @include grid-col($grid-columns: 3);
+  }
+  .top-nav, .burger-nav {
+    @include grid-col($grid-columns: 9);
+  }
+}
+
+.juiceme {
+  @include e('logo') {
+    /* CSS declarations for `.block__element` */
+    color: pink;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    $min_width: 320px;
+    $max_width: 1200px;
+    $min_font: 35px;
+    $max_font: 40px;
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+    font-weight: bold;
+    font-family: $font-fam;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,161 @@
+.top-nav {
+  /* CSS declarations for `.block` */
+
+
+  @include breakpoint(mobileonly   ) {
+    display: none;
+  }
+  @include breakpoint(phablet  ) {
+    display: none;
+  }
+  @include breakpoint(tablet ) {
+    display: block;
+  }
+  @include breakpoint(laptop) {
+    display: block;
+  }
+  @include breakpoint(desktop) {
+    display: block;
+  }
+
+
+  @include e('item') {
+    /* CSS declarations for `.block__element` */
+    display: inline-block;
+    padding: 4px;
+
+    $list: (0%, 25%, 50%, 75%, 90%);
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}):hover ~ .top-nav__item__hr{
+        margin-left: nth($list, $i);
+        opacity: 1;
+      }
+    }
+
+
+    @include e('link') {
+      text-align: center;
+      min-width: 80px;
+      color: pink;
+      font-family: $font-fam;
+      display: block;
+      padding: 5px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+
+
+
+    }
+
+    @include e('hr'){
+      height: .25rem;
+      width: 25%;
+      margin: 0;
+      background: pink;
+      border: none;
+      transition: .3s ease-in-out;
+      opacity: 0;
+    }
+  }
+
+}
+.hamburger {
+  $barH:5px;
+  @include breakpoint(mobileonly   ) {
+    display: block;
+  }
+  @include breakpoint(phablet  ) {
+    display: block;
+  }
+  @include breakpoint(tablet ) {
+    display: none;
+  }
+  @include breakpoint(laptop) {
+    display: none;
+  }
+  @include breakpoint(desktop) {
+    display: none;
+  }
+  background-color: transparent;
+  position: relative;
+  owerflow: hidden;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
+  span {
+    display: block;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 22px;
+    height:$barH;
+    background: $primary-color;
+    border-radius: 3px;
+
+    &:before, &:after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $barH;
+      background: $primary-color;
+      content: "";
+      border-radius: 3px;
+    }
+    &:before {
+      top: -15px;
+    }
+    &:after {
+      bottom: -15px;
+    }
+  }
+}
+.hamburger__ani {
+  span {
+    &:before, &:after{
+      transition-duration: 0.3s, 0.3s;
+      transition-delay: 0.3s, 0s;
+    }
+    &:before{
+      transition-property: top, transform;
+    }
+    &:after{
+      transition-property: bottom, transform;
+    }
+
+  }
+  &.is-active {
+    background-color: $secondary-color;
+    span {
+      background: none;
+      &:before, &:after{
+        transition-delay: 0s, 0.3s;
+      }
+      &:before{
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &:after{
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+
+    }
+  }
+}
+
+
+
